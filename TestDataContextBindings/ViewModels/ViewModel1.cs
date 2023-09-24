@@ -1,10 +1,8 @@
 ﻿namespace TestDataContextBindings.ViewModels
 {
     using System.ComponentModel;
-    using System.Windows.Input;
     using GalaSoft.MvvmLight;
-    using GalaSoft.MvvmLight.Command;
-    using static System.Reflection.Metadata.BlobBuilder;
+
 
     internal class ViewModel1 : ViewModelBase, INotifyPropertyChanged, IJobs, IPage
     {
