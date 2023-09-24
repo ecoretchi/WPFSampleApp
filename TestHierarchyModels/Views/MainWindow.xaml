@@ -7,7 +7,7 @@
         xmlns:uc="clr-namespace:TestHierarchyModels.Views.UserControls"
         xmlns:vm="clr-namespace:TestHierarchyModels.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="350">
+        Title="MainWindow" Height="350" Width="450">
 
     <Window.DataContext>
         <vm:ViewModel/>
@@ -18,10 +18,17 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="This is MainWindow by ViewModel context" Background="#FFCECECE" HorizontalAlignment="Center"/>
-            <Label Content="{Binding BindingInfo}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label HorizontalContentAlignment="Center" Content="This is MainWindow by ViewModel context" Background="#FFCECECE"/>
+            <Label HorizontalContentAlignment="Center" Content="{Binding BindingInfo}"/>
+            <Button Command="{Binding OnButton}" Content="OnButton" Width="100"/>
         </StackPanel>
-        <uc:UserControl1 Grid.Row="1"/>        
+        <uc:UserControl1 Grid.Row="1" Grid.Column="0"/>
+        <uc:UserControl2 Grid.Row="1" Grid.Column="1"/>
+        
     </Grid>
 </Window>

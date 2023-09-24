@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TestHierarchyModels.Views.UserControls.UserControl1"
+﻿<UserControl x:Class="TestHierarchyModels.Views.UserControls.UserControl2"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,25 +6,28 @@
              xmlns:local="clr-namespace:TestHierarchyModels.Views.UserControls"
              xmlns:vm="clr-namespace:TestHierarchyModels.ViewModels"
              xmlns:v="clr-namespace:TestHierarchyModels"
+             xmlns:helpers="clr-namespace:Helpers"             
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="200"
              >
-
+    <UserControl.Resources>
+        <helpers:DataContextProxy x:Key="DataContextProxy" DataSource="{Binding}"/>
+        <helpers:DataContextProxy x:Key="ViewModelProxy" DataSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type v:MainWindow}}, Path=DataContext}"/>
+    </UserControl.Resources>
+    
     <Grid Background="DarkGray">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="View Control 1" HorizontalContentAlignment="Center" Background="#FF767676"/>
+            <Label Content="View Control 2" HorizontalContentAlignment="Center" Background="#FF767676"/>
             <Label Content="{Binding BindingInfo}" HorizontalContentAlignment="Center"/>
-            <Label Content="Test 1" />
+            <Label Content="Test 3" />
             <Button Content="Relative call" Width="100"
-                Command="{Binding DataContext.OnButton, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type v:MainWindow}}}"
-                CommandParameter="{Binding}"
-                Visibility="{Binding IsBtnVisabled, Converter={StaticResource BoolToVis}}">
+                Command="{Binding DataSource.OnButton, Source={StaticResource ViewModelProxy}}"
+                CommandParameter="{Binding}">
             </Button>
-            <Label Content="Test 2" />
+            <Label Content="Test 4" />
             <Button Content="Sequence call" Width="100"
                 Command="{Binding OnButton}"
-                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type v:MainWindow}}, Path=DataContext }"
-                Visibility="{Binding IsBtnVisabled, Converter={StaticResource BoolToVis}}"/>
+                CommandParameter="{Binding DataSource, Source={StaticResource ViewModelProxy}}"/>
         </StackPanel>
     </Grid>
 </UserControl>

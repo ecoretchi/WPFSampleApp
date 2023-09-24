@@ -6,14 +6,12 @@
     using System.Windows.Controls;
     using TestHierarchyModels.ViewModels;
 
-    public partial class UserControl1 : UserControl
-    {           
-        string InfoText { get; set; } = string.Empty;
-
-        public UserControl1()
+    public partial class UserControl2 : UserControl
+    {         
+        public UserControl2()
         {
             InitializeComponent();
-            DataContext = new ViewModel1();
+            DataContext = new ViewModel2();
         }
     }
 }
