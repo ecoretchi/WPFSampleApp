@@ -4,7 +4,7 @@
     using GalaSoft.MvvmLight;
     using GalaSoft.MvvmLight.Command;
 
-    internal class ViewModel2 : ViewModelBase, INotifyPropertyChanged
+    internal class ViewModel2 : ViewModelBase, INotifyPropertyChanged, IPage
     {
         public string BindingInfo { get; set; } = "This view binded to Model2";
 

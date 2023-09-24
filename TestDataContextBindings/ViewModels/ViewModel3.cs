@@ -3,7 +3,7 @@
     using System.ComponentModel;
     using GalaSoft.MvvmLight;
 
-    internal class ViewModel3 : ViewModelBase, INotifyPropertyChanged
+    internal class ViewModel3 : ViewModelBase, INotifyPropertyChanged, IPage
     {
         public string BindingInfo { get; set; } = "This view binded to Model3";
 

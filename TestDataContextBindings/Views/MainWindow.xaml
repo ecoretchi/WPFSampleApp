@@ -8,18 +8,31 @@
         xmlns:local="clr-namespace:TestDataContextBindings.Views"        
         xmlns:vm="clr-namespace:TestDataContextBindings.ViewModels"
         xmlns:uc="clr-namespace:TestDataContextBindings.Views.UserControls"                     
+        xmlns:v="clr-namespace:TestDataContextBindings.Views.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800">
+      
+    <Window.DataContext>
+        <vm:ViewModel/>
+    </Window.DataContext>
 
 
     <Window.Resources>
         <helpers:DataContextProxy x:Key="ViewModelProxy" DataSource="{Binding}"/>
+
+        <DataTemplate DataType="{x:Type vm:ViewModel1}">
+            <v:UserControl1 />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewModel2}">
+            <v:UserControl2 />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ViewModel3}">
+            <v:UserControl3 />
+        </DataTemplate>
+
     </Window.Resources>
-    
-    
-    <Window.DataContext>
-        <vm:ViewModel/>
-    </Window.DataContext>
 
     <Grid Background="{StaticResource BgBrush}" >
         <Grid.RowDefinitions>
@@ -39,10 +52,7 @@
         </Border>
         <Border Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" Background="{StaticResource FgBrush}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <ContentControl Content="{Binding Page1}" Visibility="Collapsed"/>
-                <ContentControl Content="{Binding Page2}" Visibility="Collapsed"/>
-                <ContentControl Content="{Binding Page3}" Visibility="Collapsed"/>
-                <ContentControl Content="{Binding MainPage}" />
+                <ContentPresenter Content="{Binding Content}"/>
             </StackPanel>
         </Border>
 

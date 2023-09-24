@@ -6,7 +6,7 @@
     using GalaSoft.MvvmLight.Command;
     using static System.Reflection.Metadata.BlobBuilder;
 
-    internal class ViewModel1 : ViewModelBase, INotifyPropertyChanged, IJobs
+    internal class ViewModel1 : ViewModelBase, INotifyPropertyChanged, IJobs, IPage
     {
 
         public string BindingInfo { get; set; } = $"This view binded to Model1";

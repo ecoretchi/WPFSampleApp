@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TestDataContextBindings.Views.UserControls"
+             xmlns:vm="clr-namespace:TestDataContextBindings.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="100">
     <Grid>
@@ -15,8 +16,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="M1" Width="50" Height="50" Command="{Binding OnM1Button}"/>
-        <Button Grid.Row="1" Content="M2" Width="50" Height="50" Command="{Binding OnM2Button}"/>
-        <Button Grid.Row="2" Content="M3" Width="50" Height="50" Command="{Binding OnM3Button}"/>
+        <Button Grid.Row="0" Content="M1" Width="50" Height="50" Command="{Binding NavigateCommand}"
+            CommandParameter="{x:Static vm:PageNum.Page1}"/>
+        <Button Grid.Row="1" Content="M2" Width="50" Height="50" Command="{Binding NavigateCommand}"
+            CommandParameter="{x:Static vm:PageNum.Page2}"/>
+        <Button Grid.Row="2" Content="M3" Width="50" Height="50" Command="{Binding NavigateCommand}"
+            CommandParameter="{x:Static vm:PageNum.Page3}"/>
     </Grid>
 </UserControl>

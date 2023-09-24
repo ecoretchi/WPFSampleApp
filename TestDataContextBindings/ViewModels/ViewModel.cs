@@ -9,43 +9,25 @@
     using GalaSoft.MvvmLight.Command;
     using TestDataContextBindings.Views.UserControls;
 
-    internal enum PanelNum
-    {
-        Page1,
-        Page2,
-        Page3
-    }
-
-    internal struct MyViewPanel
-    {
-        internal UserControl uc;
-        internal ViewModelBase vm;
-    }
 
     internal class ViewModel : ViewModelBase, INotifyPropertyChanged
     {
         string ClassName => this.GetType().Name;
 
-        public string BindingInfo { get; set; } = $"This view binded to ViewModel";
+        private string bindingInfo = "This view binded to ViewModel";
+        public string BindingInfo { get => bindingInfo; private set => Set(ref bindingInfo, value); }
 
-        Dictionary<PanelNum, MyViewPanel> pages = new ()
+        Dictionary<PageNum, Lazy<IPage>> pages = new ()
         {
-            { PanelNum.Page1, new MyViewPanel { uc = new UserControl1(), vm = new ViewModel1() } },
-            { PanelNum.Page2, new MyViewPanel { uc = new UserControl2(), vm = new ViewModel2() } },
-            { PanelNum.Page3, new MyViewPanel { uc = new UserControl3(), vm = new ViewModel3() } }
+            { PageNum.Page1, new Lazy<IPage> ( () => new ViewModel1() ) },
+            { PageNum.Page2, new Lazy<IPage> ( () => new ViewModel2() ) },
+            { PageNum.Page3, new Lazy<IPage> ( () => new ViewModel3() ) },
         };
 
-        public UserControl? Page1 { get; set; }
-        public UserControl? Page2 { get; set; }
-        public UserControl? Page3 { get; set; }
+        private IPage content;
+        public IPage Content { get => content; private set => Set(ref content, value); }
 
-        public UserControl? MainPage { get; set; }
-
-        public RelayCommand OnM1Button => new RelayCommand(() => SetPage(PanelNum.Page1));
-
-        public RelayCommand OnM2Button => new RelayCommand(() => SetPage(PanelNum.Page2));
-
-        public RelayCommand OnM3Button => new RelayCommand(() => SetPage(PanelNum.Page3));
+        public RelayCommand<PageNum> NavigateCommand => new RelayCommand<PageNum>(SetPage);
 
         public RelayCommand<object> DoSome => new RelayCommand<object>(state =>
         {
@@ -65,28 +47,13 @@
 
         public ViewModel()
         {
-            Page1 = GetPanelUC(PanelNum.Page1);
-            Page2 = GetPanelUC(PanelNum.Page2);
-            Page3 = GetPanelUC(PanelNum.Page3);
+            SetPage(PageNum.Page1);
         }
 
-        UserControl GetPanelUC(PanelNum page)
+        void SetPage(PageNum panelNum)
         {
-            if (pages.TryGetValue(page, out MyViewPanel panel))
-            {
-                panel.uc.DataContext = panel.vm;
-                return panel.uc;
-            }
-            throw new NotImplementedException();
-        }
-
-        void SetPage(PanelNum panelNum)
-        {
-            MainPage = GetPanelUC(panelNum);
-            RaisePropertyChanged(nameof(MainPage));
-
+            Content = pages[panelNum].Value;
             BindingInfo = $"Page changed done. Page now is: {panelNum}";
-            RaisePropertyChanged(nameof(BindingInfo));
         }
     }
 }
