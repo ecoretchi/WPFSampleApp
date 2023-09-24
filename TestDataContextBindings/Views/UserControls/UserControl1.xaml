@@ -24,7 +24,7 @@
 
         <Button Grid.Row="1" Content="Do Some Job" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Command="{Binding DataContext.DoSome, 
-            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=v:MainWindow}}"
+                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=v:MainWindow}}"
                 CommandParameter="{Binding}"
         />
     </Grid>

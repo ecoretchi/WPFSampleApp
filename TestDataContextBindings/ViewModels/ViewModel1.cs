@@ -26,7 +26,10 @@
 
         string IJobs.DoJob()
         {
-            return "done job from ViewModel1";
+            BindingInfo = $"{ClassName}.DoJob() is called.";
+            RaisePropertyChanged(nameof(BindingInfo));
+
+            return $"done job from {ClassName}";
         }
     }
 }

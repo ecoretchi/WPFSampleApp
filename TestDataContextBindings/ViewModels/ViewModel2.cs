@@ -2,6 +2,7 @@
 {
     using System.ComponentModel;
     using GalaSoft.MvvmLight;
+    using GalaSoft.MvvmLight.Command;
 
     internal class ViewModel2 : ViewModelBase, INotifyPropertyChanged
     {
@@ -19,5 +20,12 @@
             IsBtnVisabled = false;
             RaisePropertyChanged(nameof(IsBtnVisabled));
         }
+
+        public RelayCommand DoJob => new RelayCommand( () =>
+        {
+            BindingInfo = $"Do some from {ClassName}";
+            RaisePropertyChanged(nameof(BindingInfo));
+        });
+
     }
 }
