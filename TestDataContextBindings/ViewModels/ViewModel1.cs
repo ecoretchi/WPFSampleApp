@@ -1,10 +1,14 @@
 ﻿namespace TestDataContextBindings.ViewModels
 {
     using System.ComponentModel;
+    using System.Windows.Input;
     using GalaSoft.MvvmLight;
+    using GalaSoft.MvvmLight.Command;
+    using static System.Reflection.Metadata.BlobBuilder;
 
-    internal class ViewModel1 : ViewModelBase, INotifyPropertyChanged
+    internal class ViewModel1 : ViewModelBase, INotifyPropertyChanged, IJobs
     {
+
         public string BindingInfo { get; set; } = $"This view binded to Model1";
 
         public bool IsBtnVisabled { get; set; } = true;
@@ -18,6 +22,11 @@
 
             IsBtnVisabled = false;
             RaisePropertyChanged(nameof(IsBtnVisabled));
+        }
+
+        string IJobs.DoJob()
+        {
+            return "done job from ViewModel1";
         }
     }
 }
