@@ -18,6 +18,10 @@
 
 
     <Window.Resources>
+
+        <DataTemplate DataType="{x:Type vm:ViewModelInfo}">
+            <v:PageInfo/>
+        </DataTemplate>
         
         <DataTemplate DataType="{x:Type vm:ViewModel1}">
             <v:UserControl1 />

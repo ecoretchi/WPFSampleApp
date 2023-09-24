@@ -16,6 +16,9 @@
     <Compile Update="Views\UserControls\UserControl1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UserControls\PageInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UserControls\UserControl3.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

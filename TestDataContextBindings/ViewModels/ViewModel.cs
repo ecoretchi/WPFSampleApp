@@ -19,6 +19,7 @@
 
         Dictionary<PageNum, Lazy<IPage>> pages = new ()
         {
+            { PageNum.PageInfo, new Lazy<IPage> ( () => new ViewModelInfo() ) },
             { PageNum.Page1, new Lazy<IPage> ( () => new ViewModel1() ) },
             { PageNum.Page2, new Lazy<IPage> ( () => new ViewModel2() ) },
             { PageNum.Page3, new Lazy<IPage> ( () => new ViewModel3() ) },
@@ -35,19 +36,17 @@
             var jobs = state as IJobs;
             var str = jobs?.DoJob();
             BindingInfo += $"\r\nRelative call, IJobs.DoJob() result: {str}";
-            RaisePropertyChanged(nameof(BindingInfo));
         });
 
         public RelayCommand DoJob => new RelayCommand(() =>
         {
             BindingInfo = $"{ClassName}.DoJob RelayCommand is called.";
-            RaisePropertyChanged(nameof(BindingInfo));
         });
 
 
         public ViewModel()
         {
-            SetPage(PageNum.Page1);
+            SetPage(PageNum.PageInfo);
         }
 
         void SetPage(PageNum panelNum)
