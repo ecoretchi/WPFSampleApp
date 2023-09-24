@@ -13,7 +13,7 @@
         public UserControl3()
         {
             InitializeComponent();
-            LbInfo.Content = $"DataContext is {DataContextName}";
+            LbInfo.Content = $"UserControl3 constructor: DataContext is {DataContextName}";
         }
 
         void OnBtnClick(object sender, RoutedEventArgs e)

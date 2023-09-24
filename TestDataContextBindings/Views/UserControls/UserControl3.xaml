@@ -10,7 +10,7 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
         <Label Content="Page 3" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label x:Name="LbInfo"  Content="Info" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Content="Check DataContext Now" Click="OnBtnClick" Visibility="{Binding IsBtnVisabled, Converter={StaticResource BoolToVis}}"/>
-        <Label Content="{Binding BindingInfo}"/>
+        <Button Content="Check DataContext Now" Click="OnBtnClick" Visibility="{Binding IsBtnVisible, Converter={StaticResource BoolToVis}}"/>
+        <Label Content="{Binding BindingInfo}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>

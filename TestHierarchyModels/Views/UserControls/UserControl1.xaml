@@ -18,13 +18,13 @@
             <Button Content="Relative call" Width="100"
                 Command="{Binding DataContext.OnButton, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type v:MainWindow}}}"
                 CommandParameter="{Binding}"
-                Visibility="{Binding IsBtnVisabled, Converter={StaticResource BoolToVis}}">
+                Visibility="{Binding IsBtnVisible, Converter={StaticResource BoolToVis}}">
             </Button>
             <Label Content="Test 2" />
             <Button Content="Sequence call" Width="100"
                 Command="{Binding OnButton}"
                 CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type v:MainWindow}}, Path=DataContext }"
-                Visibility="{Binding IsBtnVisabled, Converter={StaticResource BoolToVis}}"/>
+                Visibility="{Binding IsBtnVisible, Converter={StaticResource BoolToVis}}"/>
         </StackPanel>
     </Grid>
 </UserControl>

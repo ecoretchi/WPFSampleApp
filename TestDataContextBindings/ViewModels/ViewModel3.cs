@@ -5,9 +5,9 @@
 
     internal class ViewModel3 : ViewModelBase, INotifyPropertyChanged, IPage
     {
-        public string BindingInfo { get; set; } = "This view binded to Model3";
+        public string BindingInfo { get; set; } = string.Empty; 
 
-        public bool IsBtnVisabled { get; set; } = true;
+        public bool IsBtnVisible { get; set; } = true;
 
         string ClassName => this.GetType().Name;
 
@@ -16,8 +16,14 @@
             BindingInfo = $"Info from {ClassName}: DataContext checked done.";
             RaisePropertyChanged(nameof(BindingInfo));
 
-            IsBtnVisabled = false;
-            RaisePropertyChanged(nameof(IsBtnVisabled));
+            IsBtnVisible = false;
+            RaisePropertyChanged(nameof(IsBtnVisible));
+        }
+
+        void IPage.Init()
+        {
+            BindingInfo = "This view binded to Model3";
+            IsBtnVisible = true;
         }
     }
 }

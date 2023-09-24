@@ -5,6 +5,8 @@
 
     internal class ViewModelInfo : ViewModelBase, INotifyPropertyChanged, IPage
     {
-
+        void IPage.Init()
+        {
+        }
     }
 }

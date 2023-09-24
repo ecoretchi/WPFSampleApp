@@ -18,8 +18,8 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
         <Label Content="Page 2" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label x:Name="LbInfo"  Content="Info" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Content="Check DataContext Now" Click="OnBtnClick" Visibility="{Binding IsBtnVisabled, Converter={StaticResource BoolToVis}}"/>
-        <Label Content="{Binding BindingInfo}"/>
+        <Button Content="Check DataContext Now" Click="OnBtnClick" Visibility="{Binding IsBtnVisible, Converter={StaticResource BoolToVis}}"/>
+        <Label Content="{Binding BindingInfo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <Button Width="100" Content="Do Many Action" HorizontalAlignment="Center" VerticalAlignment="Center">
             <i:Interaction.Triggers>

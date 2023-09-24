@@ -53,6 +53,7 @@
         {
             Content = pages[panelNum].Value;
             BindingInfo = $"Page changed done. Page now is: {panelNum}";
+            Content.Init();
         }
     }
 }

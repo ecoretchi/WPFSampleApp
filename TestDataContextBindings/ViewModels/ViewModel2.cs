@@ -6,9 +6,9 @@
 
     internal class ViewModel2 : ViewModelBase, INotifyPropertyChanged, IPage
     {
-        public string BindingInfo { get; set; } = "This view binded to Model2";
+        public string BindingInfo { get; set; } = string.Empty;
 
-        public bool IsBtnVisabled { get; set; } = true;
+        public bool IsBtnVisible { get; set; } = true;
 
         string ClassName => this.GetType().Name;
 
@@ -17,8 +17,8 @@
             BindingInfo = $"Info from {ClassName}: DataContext checked done.";
             RaisePropertyChanged(nameof(BindingInfo));
 
-            IsBtnVisabled = false;
-            RaisePropertyChanged(nameof(IsBtnVisabled));
+            IsBtnVisible = false;
+            RaisePropertyChanged(nameof(IsBtnVisible));
         }
 
         public RelayCommand DoJob => new RelayCommand( () =>
@@ -26,6 +26,10 @@
             BindingInfo = $"Do some from {ClassName}";
             RaisePropertyChanged(nameof(BindingInfo));
         });
-
+        void IPage.Init()
+        {
+            BindingInfo = "This view binded to Model2";
+            IsBtnVisible = true;
+        }
     }
 }

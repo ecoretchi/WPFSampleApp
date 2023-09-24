@@ -9,9 +9,9 @@
     internal class ViewModel1 : ViewModelBase, INotifyPropertyChanged, IJobs, IPage
     {
 
-        public string BindingInfo { get; set; } = $"This view binded to Model1";
+        public string BindingInfo { get; set; } = string.Empty;
 
-        public bool IsBtnVisabled { get; set; } = true;
+        public bool IsBtnVisible { get; set; } = true;
 
         string ClassName => this.GetType().Name;
 
@@ -20,8 +20,8 @@
             BindingInfo = $"Info from {ClassName}: DataContext checked done.";
             RaisePropertyChanged(nameof(BindingInfo));
 
-            IsBtnVisabled = false;
-            RaisePropertyChanged(nameof(IsBtnVisabled));
+            IsBtnVisible = false;
+            RaisePropertyChanged(nameof(IsBtnVisible));
         }
 
         string IJobs.DoJob()
@@ -30,6 +30,12 @@
             RaisePropertyChanged(nameof(BindingInfo));
 
             return $"done job from {ClassName}";
+        }
+
+        void IPage.Init()
+        {
+            BindingInfo = $"This view binded to Model1";
+            IsBtnVisible = true;
         }
     }
 }
