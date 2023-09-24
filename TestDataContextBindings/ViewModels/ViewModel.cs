@@ -14,7 +14,7 @@
     {
         string ClassName => this.GetType().Name;
 
-        private string bindingInfo = "This view binded to ViewModel";
+        private string bindingInfo;
         public string BindingInfo { get => bindingInfo; private set => Set(ref bindingInfo, value); }
 
         Dictionary<PageNum, Lazy<IPage>> pages = new ()
