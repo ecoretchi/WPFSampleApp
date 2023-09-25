@@ -20,7 +20,10 @@
                 [2] = new Lazy<IPage>(() => new Page2ViewModel())
             };
 
-        public MainViewModel() => Navigate(1);
+        public MainViewModel()
+        {
+            Navigate(1);
+        }
 
         private void Navigate(int value) => Content = pages[value].Value;
     }
