@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataContextBindings", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestHierarchyModels", "TestHierarchyModels\TestHierarchyModels.csproj", "{3757C330-43E3-4589-ABF2-41CB9318E6B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrulyMvvm", "TrulyMvvm\TrulyMvvm.csproj", "{9BC19F18-E6D8-435F-BB3D-F6F79064B4FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrulyMvvm", "TrulyMvvm\TrulyMvvm.csproj", "{9BC19F18-E6D8-435F-BB3D-F6F79064B4FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppEventButtonClick", "WpfAppEventButtonClick\WpfAppEventButtonClick.csproj", "{35BE9D80-A76F-4E8D-9759-AEACD1AF8ACB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9BC19F18-E6D8-435F-BB3D-F6F79064B4FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BC19F18-E6D8-435F-BB3D-F6F79064B4FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BC19F18-E6D8-435F-BB3D-F6F79064B4FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35BE9D80-A76F-4E8D-9759-AEACD1AF8ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35BE9D80-A76F-4E8D-9759-AEACD1AF8ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35BE9D80-A76F-4E8D-9759-AEACD1AF8ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35BE9D80-A76F-4E8D-9759-AEACD1AF8ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
